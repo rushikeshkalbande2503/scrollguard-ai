@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ScrollGuard AI — a frontend digital-wellbeing prototype for understanding screen habits and building better attention routines.">
+  <title>ScrollGuard AI — Take Back Your Attention</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar" id="topbar">
+      <a class="brand" href="#home" aria-label="ScrollGuard AI home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>ScrollGuard <b>AI</b></span>
+      </a>
+      <button class="mobile-nav-toggle icon-btn" id="mobileNavToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="nav" id="mainNav" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#timer">Timer</a>
+        <a href="#coach">Coach</a>
+        <a href="#challenge">Challenge</a>
+        <a href="#settings">Settings</a>
+      </nav>
+      <div class="top-actions">
+        <button class="icon-btn" id="themeQuickToggle" aria-label="Toggle theme">☼</button>
+        <button class="avatar" id="profileQuick" aria-label="Open profile">SG</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section" id="home">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="pulse-dot"></span> DIGITAL WELLBEING • FRONTEND AI DEMO</div>
+          <h1>Take Back<br><span>Your Attention.</span></h1>
+          <p class="hero-text">Understand your scroll patterns, turn everyday screen habits into useful signals, and build a healthier relationship with your digital time.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-go="onboarding">Get Started <span>→</span></button>
+            <button class="btn btn-ghost" data-go="dashboard">Explore Dashboard</button>
+          </div>
+          <div class="hero-meta">
+            <div><strong>100%</strong><span>Browser-based</span></div>
+            <div><strong>0</strong><span>Backend required</span></div>
+            <div><strong>7D</strong><span>Habit challenge</span></div>
+          </div>
+        </div>
+        <div class="hero-visual reveal delay-1" aria-label="Digital attention visualization">
+          <div class="orb orb-a"></div><div class="orb orb-b"></div>
+          <div class="attention-card glass-card">
+            <div class="card-top"><span>ATTENTION SIGNAL</span><span class="live-pill">● LIVE DEMO</span></div>
+            <div class="attention-ring" id="heroRing"><div><strong id="heroScore">72</strong><small>/100</small></div></div>
+            <p id="heroInsight">Your attention has room to breathe.</p>
+            <div class="signal-bars"><i style="height:38%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:79%"></i><i style="height:57%"></i><i style="height:92%"></i><i style="height:68%"></i><i style="height:43%"></i><i style="height:75%"></i><i style="height:52%"></i></div>
+          </div>
+          <div class="float-chip chip-one">✦ Pattern found</div>
+          <div class="float-chip chip-two">⌁ 15 min focus</div>
+        </div>
+      </section>
+
+      <section class="section feature-section" id="features">
+        <div class="section-heading reveal"><div><span class="eyebrow">WHY SCROLLGUARD</span><h2>Make your screen time <em>visible.</em></h2></div><p>Small signals become useful when they are easy to understand and act on.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card glass-card reveal"><span class="feature-icon">◉</span><h3>Habit Signals</h3><p>Translate daily usage into simple patterns, levels and observations.</p><span class="feature-num">01</span></article>
+          <article class="feature-card glass-card reveal delay-1"><span class="feature-icon">✦</span><h3>Personal Insights</h3><p>Get contextual recommendations based on your study or work profile.</p><span class="feature-num">02</span></article>
+          <article class="feature-card glass-card reveal delay-2"><span class="feature-icon">◷</span><h3>Attention Timer</h3><p>Use a lightweight session timer to create a deliberate stopping point.</p><span class="feature-num">03</span></article>
+          <article class="feature-card glass-card reveal"><span class="feature-icon">↗</span><h3>Progress Loops</h3><p>Build momentum with a seven-day challenge, streaks and visible progress.</p><span class="feature-num">04</span></article>
+        </div>
+      </section>
+
+      <section class="section how-section" id="how-it-works">
+        <div class="section-heading centered reveal"><span class="eyebrow">HOW IT WORKS</span><h2>From scrolling to <em>self-awareness.</em></h2></div>
+        <div class="steps">
+          <div class="step reveal"><span>01</span><div><h3>Tell us your routine</h3><p>Set your baseline with a short profile and usage check-in.</p></div></div>
+          <div class="step reveal delay-1"><span>02</span><div><h3>See the signal</h3><p>A transparent JavaScript ruleset turns your inputs into a demo wellbeing score.</p></div></div>
+          <div class="step reveal delay-2"><span>03</span><div><h3>Try one small change</h3><p>Use the timer, coach and challenge to turn insight into action.</p></div></div>
+        </div>
+      </section>
+
+      <section class="section workspace-section" id="onboarding">
+        <div class="section-heading reveal"><div><span class="eyebrow">01 / ONBOARDING</span><h2>Build your <em>attention profile.</em></h2></div><p>Your information stays in this browser using localStorage.</p></div>
+        <form class="glass-card onboarding-form reveal" id="profileForm" novalidate>
+          <div class="form-grid">
+            <label>Full name<input id="name" name="name" type="text" placeholder="e.g. Aarav Patil" autocomplete="name" required><small class="error" data-error="name"></small></label>
+            <label>Age<input id="age" name="age" type="number" min="13" max="100" placeholder="e.g. 21" required><small class="error" data-error="age"></small></label>
+            <label>Profession / study field<select id="profession" name="profession" required><option value="">Select one</option><option>CSE / AI & Data Science</option><option>Engineering</option><option>Medical / Healthcare</option><option>Business / Management</option><option>Design / Creative</option><option>Teacher / Educator</option><option>Working Professional</option><option>Other</option></select><small class="error" data-error="profession"></small></label>
+            <label>Daily social-media usage<input id="usage" name="usage" type="number" min="0" max="24" step="0.5" placeholder="Hours per day" required><small class="error" data-error="usage"></small></label>
+          </div>
+          <fieldset><legend>Platforms you use</legend><div class="check-grid" id="platforms"><label class="check-pill"><input type="checkbox" value="Instagram">Instagram</label><label class="check-pill"><input type="checkbox" value="YouTube">YouTube</label><label class="check-pill"><input type="checkbox" value="WhatsApp">WhatsApp</label><label class="check-pill"><input type="checkbox" value="Facebook">Facebook</label><label class="check-pill"><input type="checkbox" value="X">X</label><label class="check-pill"><input type="checkbox" value="LinkedIn">LinkedIn</label></div><small class="error" data-error="platforms"></small></fieldset>
+          <fieldset><legend>Digital habits <span>Choose all that apply</span></legend><div class="check-grid" id="habits"><label class="check-pill"><input type="checkbox" value="bedtime">I check my phone near bedtime</label><label class="check-pill"><input type="checkbox" value="meals">I use social media during meals</label><label class="check-pill"><input type="checkbox" value="notifications">I check notifications frequently</label><label class="check-pill"><input type="checkbox" value="multitask">I scroll while studying/working</label><label class="check-pill"><input type="checkbox" value="breaks">I take intentional screen breaks</label><label class="check-pill"><input type="checkbox" value="goal">I already use a daily usage goal</label></div></fieldset>
+          <div class="form-footer"><p>Demo note: this prototype provides educational wellbeing insights, not medical diagnosis.</p><button class="btn btn-primary" type="submit">Analyze My Habits <span>→</span></button></div>
+        </form>
+      </section>
+
+      <section class="section dashboard-section" id="dashboard">
+        <div class="section-heading reveal"><div><span class="eyebrow">02 / DASHBOARD</span><h2>Your attention <em>command center.</em></h2></div><div class="section-actions"><button class="btn btn-small" data-go="onboarding">Edit Profile</button><button class="btn btn-small btn-primary" id="refreshInsights">Refresh Signals</button></div></div>
+        <div class="dashboard-grid">
+          <article class="score-card glass-card reveal"><div class="card-top"><span>WELLBEING SCORE</span><span class="status-dot">●</span></div><div class="big-score"><span id="dashScore">72</span><small>/100</small></div><div class="progress-line"><i id="scoreBar" style="width:72%"></i></div><div class="score-footer"><strong id="usageLevel">Moderate</strong><span id="usageSummary">Balanced with room to improve</span></div></article>
+          <article class="profile-card glass-card reveal delay-1"><div class="profile-head"><div class="avatar large" id="dashAvatar">SG</div><div><span class="muted">WELCOME BACK</span><h3 id="dashName">ScrollGuard Explorer</h3><p id="dashProfession">Set up your profile to personalize this view.</p></div></div><div class="mini-stats"><div><b id="dashUsage">0h</b><span>daily usage</span></div><div><b id="dashPlatforms">0</b><span>platforms</span></div><div><b id="dashGoal">2h</b><span>daily goal</span></div></div></article>
+          <article class="chart-card glass-card reveal"><div class="card-top"><div><span>WEEKLY USAGE</span><h3>Seven-day pattern</h3></div><span class="chart-note">Demo data</span></div><div class="chart-wrap"><canvas id="usageChart" aria-label="Weekly social media usage chart"></canvas></div></article>
+          <article class="insights-card glass-card reveal delay-1"><div class="card-top"><span>ATTENTION SIGNALS</span><span>✦</span></div><div id="insightList" class="insight-list"></div></article>
+        </div>
+        <div class="recommendation-strip glass-card reveal"><div><span class="eyebrow">PERSONALIZED NEXT STEP</span><h3 id="recommendationTitle">Create one intentional screen break.</h3><p id="recommendationText">Your next action will appear here after onboarding.</p></div><button class="btn btn-primary" data-go="timer">Start a session</button></div>
+      </section>
+
+      <section class="section timer-section" id="timer">
+        <div class="section-heading reveal"><div><span class="eyebrow">03 / SESSION TIMER</span><h2>Give your attention a <em>finish line.</em></h2></div><p>Default session: 15 minutes. Demo mode compresses it to 15 seconds.</p></div>
+        <div class="timer-layout">
+          <article class="timer-card glass-card reveal"><div class="timer-ring" id="timerRing"><div><span id="timerDisplay">15:00</span><small>FOCUS SESSION</small></div></div><div class="timer-controls"><button class="btn btn-primary" id="timerStart">Start</button><button class="btn btn-ghost" id="timerPause" disabled>Pause</button><button class="btn btn-ghost" id="timerReset">Reset</button></div><div class="timer-status" id="timerStatus">Ready when you are.</div></article>
+          <article class="timer-info reveal delay-1"><div class="info-item"><span>01</span><div><h3>Set a stopping point</h3><p>A visible endpoint makes a short digital session more deliberate.</p></div></div><div class="info-item"><span>02</span><div><h3>Listen for the cue</h3><p>Optional voice alerts can announce a warning near the end.</p></div></div><div class="info-item"><span>03</span><div><h3>Reflect after</h3><p>Notice how you feel rather than judging yourself for the time spent.</p></div></div></article></div>
+      </section>
+
+      <section class="section coach-section" id="coach">
+        <div class="section-heading reveal"><div><span class="eyebrow">04 / AI WELLBEING COACH</span><h2>A calm voice for your <em>next move.</em></h2></div><p>Rule-based demo responses — no external AI model or API is used.</p></div>
+        <div class="coach-shell glass-card reveal"><div class="coach-head"><div class="coach-avatar">✦</div><div><h3>ScrollGuard Coach</h3><p><span class="online-dot"></span> Demo intelligence online</p></div><button class="icon-btn" id="clearChat" aria-label="Clear coach conversation">↺</button></div><div class="chat-log" id="chatLog" aria-live="polite"></div><form class="chat-form" id="chatForm"><input id="chatInput" type="text" placeholder="Try: “I keep checking my phone while studying”" autocomplete="off" required><button class="btn btn-primary" type="submit">Send</button></form><div class="quick-prompts"><button data-prompt="How can I reduce scrolling?">Reduce scrolling</button><button data-prompt="I cannot focus while studying">Improve focus</button><button data-prompt="Give me a small challenge">Give me a challenge</button></div></div>
+      </section>
+
+      <section class="section challenge-section" id="challenge">
+        <div class="section-heading reveal"><div><span class="eyebrow">05 / 7-DAY CHALLENGE</span><h2>Seven days of <em>intentional attention.</em></h2></div><div class="challenge-progress"><strong id="challengePercent">0%</strong><span>complete</span></div></div>
+        <div class="challenge-layout"><div class="challenge-list" id="challengeList"></div><aside class="streak-card glass-card reveal"><div class="streak-icon">✦</div><span>CURRENT STREAK</span><strong id="streakCount">0</strong><p>Complete today's task to keep the loop going.</p><div class="streak-track"><i id="streakBar" style="width:0%"></i></div></aside></div>
+      </section>
+
+      <section class="section progress-section" id="progress">
+        <div class="section-heading reveal"><div><span class="eyebrow">06 / PROGRESS</span><h2>Momentum you can <em>see.</em></h2></div></div>
+        <div class="progress-grid"><article class="metric-card glass-card reveal"><span>CURRENT SCORE</span><strong id="progressScore">72</strong><p>out of 100</p></article><article class="metric-card glass-card reveal delay-1"><span>CHALLENGE</span><strong id="progressDays">0/7</strong><p>days completed</p></article><article class="metric-card glass-card reveal delay-2"><span>STREAK</span><strong id="progressStreak">0</strong><p>consecutive days</p></article><article class="metric-card glass-card reveal"><span>DEMO IMPROVEMENT</span><strong id="progressImprovement">+0%</strong><p>vs. baseline example</p></article></div>
+      </section>
+
+      <section class="section settings-section" id="settings">
+        <div class="section-heading reveal"><div><span class="eyebrow">07 / SETTINGS</span><h2>Shape the experience <em>your way.</em></h2></div></div>
+        <div class="settings-card glass-card reveal"><div class="setting-row"><div><h3>Appearance</h3><p>Switch between dark and light themes.</p></div><button class="toggle" id="themeToggle" role="switch" aria-checked="false"><span></span></button></div><div class="setting-row"><div><h3>Voice warnings</h3><p>Use browser speech for timer warnings.</p></div><button class="toggle" id="voiceToggle" role="switch" aria-checked="true"><span></span></button></div><div class="setting-row"><div><h3>Daily usage goal</h3><p>Set the target used by your dashboard signals.</p></div><div class="goal-control"><input id="goalInput" type="number" min="0.5" max="24" step="0.5"><span>hours</span></div></div><div class="setting-row"><div><h3>Demo mode</h3><p>Compress the 15-minute timer into 15 seconds.</p></div><button class="toggle" id="demoToggle" role="switch" aria-checked="true"><span></span></button></div><div class="danger-row"><div><h3>Reset all local data</h3><p>Clears your profile, challenge progress and preferences from this browser.</p></div><button class="btn btn-danger" id="resetAll">Reset Data</button></div></div>
+      </section>
+    </main>
+
+    <footer class="footer"><div class="brand"><span class="brand-mark"><span></span><span></span><span></span></span><span>ScrollGuard <b>AI</b></span></div><p>Frontend prototype for digital wellbeing education. No medical diagnosis. No backend. No external AI API.</p><span>© 2026 ScrollGuard AI</span></footer>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-backdrop" id="warningModal" aria-hidden="true"><div class="modal glass-card" role="dialog" aria-modal="true" aria-labelledby="warningTitle"><div class="modal-icon">◷</div><h2 id="warningTitle">Your session is nearly done</h2><p id="warningText">You have one minute left. Decide intentionally whether you want to continue.</p><div class="modal-actions"><button class="btn btn-ghost" id="modalDismiss">Keep going</button><button class="btn btn-primary" id="modalStop">End session</button></div></div></div>
+  <script src="script.js"></script>
+</body>
+</html>
